@@ -1,31 +1,39 @@
 import { useEffect, useState } from "react";
 import LeftSection from "../../components/ReadQuran/LeftSection";
 import RightSection from "../../components/ReadQuran/RightSection";
-import { getSurahs } from "../../services/quran_api";
+import { getSurahs, getSurahDetail } from "../../services/quran_api";
 
 const ReadQuran = () => {
   const [surahs, setSurahs] = useState([]);
-  const [selectedSurah, setSelectedSurah] = useState(0);
-
-  console.log(selectedSurah);
+  const [selectedSurah, setSelectedSurah] = useState(1);
+  const [surahDetail, setSurahDetail] = useState({});
 
   useEffect(() => {
     fetchSurahs();
   }, []);
+
+  useEffect(() => {
+    fetchSurahDetail(selectedSurah);
+  }, [selectedSurah]);
 
   async function fetchSurahs() {
     const surahs = await getSurahs();
     setSurahs(surahs);
   }
 
+  async function fetchSurahDetail(id) {
+    const surahDetail = await getSurahDetail(id);
+    setSurahDetail(surahDetail);
+  }
+
   return (
-    <div className="bg-gray-500 flex w-full h-screen">
+    <div className="bg-gray-500 flex basis-4/5 h-screen">
       <LeftSection
         surahs={surahs}
         onClickSurah={setSelectedSurah}
         selectedSurah={selectedSurah}
       />
-      <RightSection />
+      <RightSection surahDetail={surahDetail} />
     </div>
   );
 };

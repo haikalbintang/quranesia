@@ -38,26 +38,28 @@ function App() {
 
   return (
     <div className="h-screen w-screen flex">
-      {selectedPage === "Dashboard" && (
+      <div className="w-[25%]">
+        <Home />
+      </div>
+      <div className="w-[20%]">
         <Layout
           onClickDashboardMenu={setSelectedPage}
           onClickLogo={() => setSelectedPage("Home")}
         />
-      )}
-      {selectedPage === "Home" && <Home />}
-      {selectedPage === "Baca Quran" && (
+      </div>
+      <div className="w-[20%]">
         <ChooseSurah
           surahs={surahs}
           onClickSurah={handleClickSurah}
           selectedSurah={selectedSurah}
         />
-      )}
-      {selectedPage === "Detail Surah" && (
+      </div>
+      <div className="w-[35%]">
         <SurahDetail
           surahDetail={surahDetail}
           onBack={() => setSelectedPage("Baca Quran")}
         />
-      )}
+      </div>
       {selectedPage === "Markah Buku" && <Bookmark />}
       {selectedPage === "Pengaturan" && <Setting />}
     </div>

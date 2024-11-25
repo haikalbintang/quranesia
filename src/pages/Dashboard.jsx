@@ -3,13 +3,13 @@
 const Dashboard = ({ onClickLogo, onClickDashboardMenu }) => {
   const menus = ["Baca Quran", "Markah Buku", "Pengaturan"];
   return (
-    <main className="h-screen w-screen flex flex-col justify-between items-center p-6 bg-teal-600">
-      <div className="mt-24">
+    <main className="h-screen w-full p-6 bg-teal-600">
+      <div className="mt-20 flex flex-col items-center mb-20">
         <div
           onClick={onClickLogo}
-          className="cursor-pointer bg-teal-700 rounded-3xl flex flex-col justify-center items-center p-4 py-10 mb-20"
+          className="cursor-pointer bg-teal-700 rounded-3xl flex flex-col justify-center items-center p-4 px-8 mb-20"
         >
-          <img src="quran.png" alt="Quran App Logo" height={120} width={120} />
+          <img src="quran.png" alt="Quran App Logo" height={160} width={160} />
           <h1 className="text-white text-3xl font-bold">QURANESIA</h1>
         </div>
         {menus.map((menu) => (

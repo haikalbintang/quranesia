@@ -2,7 +2,7 @@
 
 const SurahDetail = ({ surahDetail, onBack }) => {
   return (
-    <div className="h-screen w-screen bg-gray-50 flex flex-col p-8 overflow-y-auto">
+    <div className="h-screen w-full bg-gray-50 flex flex-col p-8 overflow-y-auto">
       <div className="w-full flex justify-between items-center mb-5">
         <h2 onClick={onBack} className="text-3xl font-bold text-teal-600">
           {surahDetail?.nomor}. {surahDetail?.nama_latin}
